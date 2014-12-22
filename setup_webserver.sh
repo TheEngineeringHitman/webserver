@@ -43,8 +43,8 @@ y|yes )
 			server_ip=$default_ip
 		fi
 		echo "Would you like to use the default packages found with apt-get or would you like to compile from"
-                echo "the latest binaries? Recompiling is slow (will add 20-30min) but results in the latest code including"
-                echo "fixes that will result in a more securing server. Compile from binaries? (y/n) >"
+                echo "the latest sources? Recompiling is slow (will add 20-30min) but results in the latest code including"
+                echo "fixes that will result in a more securing server. Compile from source? (y/n) >"
 		read compile
 		echo "Would you like to setup SSL for this webserver? This can always be done later as well. (y/n) >"
 		read setup_ssl
