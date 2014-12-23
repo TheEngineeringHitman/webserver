@@ -52,9 +52,9 @@ y|yes )
 		echo "/usr/share/nginx/www however, many people like /var/www. Please type the full path now. >"
 		read http_dir
 		if [[ $http_dir = "" ]]; then
-			http_dir = "/usr/share/nginx/www."
+			http_dir="/usr/share/nginx/www."
 		elif [[ $http_dir != $/ ]]; then
-			http_dir = $http_dir"/"
+			http_dir=$http_dir"/"
 		fi
 		
 		case $compile in
