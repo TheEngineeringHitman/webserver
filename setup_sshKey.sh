@@ -3,6 +3,7 @@ clear
 echo "#########################################################"
 echo "## By: Andrew Herren"
 echo "## Date: 11/13/2014"
+echo "## Script Instructions: http://www.theengineeringhitman.com/securing-raspberry-pi-ssh/"
 echo "## This script helps setup private key ssh access. It is based on a tutorial found at:"
 echo "## https://www.linode.com/docs/security/securing-your-server"
 echo "###########################################################"
