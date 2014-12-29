@@ -4,6 +4,7 @@ echo "################################################"
 echo "## Script: setup_owncloud.sh"
 echo "## By: Andrew Herren"
 echo "## Date: 11/07/14"
+echo "## Script instructions: http://www.theengineeringhitman.com/setting-up-a-r.-dropbox-clone/"
 echo "## This script is based on a tutorial that can be found at:"
 echo "## www.techjawab.com/2014/08/how-to-setup-owncloud-7-on-raspberry-pi.html"
 echo "################################################"
@@ -84,15 +85,15 @@ y|yes )
 			echo "Enter the name of the directory that you would like owncloud installed to. "
 			echo "This must be a directory that is made available via your webserver. For example"
 			echo "if your public html directory is  /var/www/ and you entered /var/www here, then"
-			echo "Owncloud would be accessable at www.yoursite.com. If instead you entered /var/www/cloud"
-			echo "here, then owncloud would be accessable at www.yoursite.com/cloud >"
+			echo "Owncloud would be accessible at www.yoursite.com. If instead you entered /var/www/cloud"
+			echo "here, then owncloud would be accessible at www.yoursite.com/cloud >"
 			read dir
 			if [[ ! -d $dir ]]; then
 				echo "Creating directory."
 				mkdir -p $dir
 			fi
 			if [[ ! do_www_conf == "false" ]]; then
-				echo "Would you like to automatically configure the requried owncloud security settings?"
+				echo "Would you like to automatically configure the required owncloud security settings?"
 				echo "You should only do this if your webserver was installed using one of my scripts"
 				echo "and you have not made changes to /etc/nginx/sites-avaialble/default. Continue"
 				echo "with security changes? (y/n) >"
@@ -101,7 +102,7 @@ y|yes )
 				y|yes )
 					do_www_conf="true"
 					echo "Would you like to enforce SSL for owncloud? This means that when you go"
-					echo "to "$dir" via http, it will automatcially redirect you to https. You should"
+					echo "to "$dir" via http, it will automatically redirect you to https. You should"
 					echo "Only do this if you have setup SSL on your site. Enforce https? (y/n) >"
 					read enforce
 					case "$enforce" in 
@@ -172,7 +173,7 @@ y|yes )
 					if [[ $enforce_https == "true" ]]; then
 						awk -v wwwdir="$wwwdir" 'begin{x=0}//{
 							if($0~/error_page 404/ && x==0){
-								print $0"\n\n\t location ~/"wwwdir" {\n\t\treturn 301 https://\$server_name\$request_uri;\n\t}";
+								print $0"\n\n\t location ~/"wwwdir" {\n\t\treturn 301 https://$server_name$request_uri;\n\t}";
 								x=1;
 							}else if($0~/error_page 404/){
 								print $0"\n\n\tlocation ~/"wwwdir"(?:\.htaccess|data|config|db_structure\.xml|README) {\n\t\tdeny all;\n\t}";

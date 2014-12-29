@@ -4,6 +4,7 @@ echo "################################################"
 echo "## Script: setup_wordpress.sh"
 echo "## By: Andrew Herren"
 echo "## Date: 11/15/2014"
+echo "## Script instructions: http//www.theengineeringhitman.com/easy-raspberry-pi-wordpress-install/
 echo "## This script is based on a tutorial by Ste W which can be found at:"
 echo "## www.raspipress.com/2014/06/tutorial-install-wordpress-on-a-raspberry-pi-using-nginx/"
 echo "################################################"
