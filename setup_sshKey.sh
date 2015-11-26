@@ -42,7 +42,7 @@ y|yes )
 					print "PermitRootLogin no";
 				else
 					print $0;
-				}' /etc/ssh/sshd_config.bak > /etc/ssh/ssh2_config
+				}' /etc/ssh/sshd_config.bak > /etc/ssh/sshd_config
 				service ssh restart
 				;;
 			* )
